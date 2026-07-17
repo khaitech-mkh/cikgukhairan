@@ -3,306 +3,128 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Khairan Hadafi — Pendidik &amp; Pembina</title>
-  <meta name="description" content="Laman rasmi Khairan Hadafi — pendidik dan pembina penyelesaian digital untuk sekolah.">
+  <title>Khairan Hadafi — Pendidik &amp; Pembina Penyelesaian Digital</title>
+  <meta name="description" content="Khairan Hadafi — guru Sains Komputer yang membina alat digital praktikal untuk sekolah. Portfolio kerja, projek, dan cara berhubung.">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Khairan Hadafi — Pendidik &amp; Pembina">
-  <meta property="og:description" content="Pendidik dan pembina penyelesaian digital untuk sekolah.">
+  <meta property="og:title" content="Khairan Hadafi — Pendidik &amp; Pembina Penyelesaian Digital">
+  <meta property="og:description" content="Guru Sains Komputer yang membina alat digital praktikal untuk sekolah.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://cikgukhairan.my">
+  <meta property="og:locale" content="ms_MY">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #0b0f19;
-      --bg-soft: #111827;
-      --card: #151b2b;
-      --border: #1f2937;
-      --text: #e5e7eb;
-      --muted: #94a3b8;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.12);
-      --radius: 16px;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
-    /* Ambient glow */
-    body::before {
-      content: "";
-      position: fixed;
-      top: -20%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 700px;
-      height: 700px;
-      background: radial-gradient(circle, rgba(56,189,248,0.15) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .wrap {
-      position: relative;
-      z-index: 1;
-      max-width: 780px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* Hero */
-    header {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 80px 0;
-    }
-
-    .avatar {
-      width: 108px;
-      height: 108px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), #0ea5e9);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 42px;
-      font-weight: 800;
-      color: #05233a;
-      margin-bottom: 28px;
-      box-shadow: 0 10px 40px rgba(56,189,248,0.35);
-    }
-
-    header h1 {
-      font-size: clamp(2rem, 6vw, 3rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-    }
-
-    .tagline {
-      color: var(--accent);
-      font-weight: 600;
-      font-size: 1.05rem;
-      margin-bottom: 20px;
-    }
-
-    header p.bio {
-      color: var(--muted);
-      max-width: 520px;
-      font-size: 1.05rem;
-      margin-bottom: 36px;
-    }
-
-    .cta-row {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 24px;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      text-decoration: none;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-      border: 1px solid transparent;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #05233a;
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(56,189,248,0.4);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      color: var(--text);
-      border-color: var(--border);
-    }
-    .btn-ghost:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    /* Sections */
-    section { padding: 60px 0; }
-
-    .section-label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--accent);
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    h2 {
-      font-size: 1.6rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      margin-bottom: 28px;
-    }
-
-    /* Projects */
-    .project {
-      display: block;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-      text-decoration: none;
-      color: inherit;
-      margin-bottom: 16px;
-      transition: transform 0.15s ease, border-color 0.15s ease;
-    }
-    .project:hover {
-      transform: translateY(-3px);
-      border-color: var(--accent);
-    }
-    .project-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 8px;
-    }
-    .project h3 {
-      font-size: 1.15rem;
-      font-weight: 700;
-    }
-    .project .pill {
-      font-size: 0.72rem;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      white-space: nowrap;
-    }
-    .project p {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-    .project .arrow {
-      color: var(--accent);
-      font-weight: 600;
-      font-size: 0.9rem;
-      margin-top: 12px;
-      display: inline-block;
-    }
-
-    /* Contact */
-    .contact-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px;
-      text-align: center;
-    }
-    .contact-card p {
-      color: var(--muted);
-      margin-bottom: 24px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px 0 60px;
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
-    @media (max-width: 480px) {
-      .cta-row { flex-direction: column; width: 100%; }
-      .btn { justify-content: center; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="wrap">
 
-    <!-- HERO -->
-    <header>
-      <div class="avatar">KH</div>
-      <h1>Khairan Hadafi</h1>
-      <p class="tagline">Pendidik &amp; Pembina Penyelesaian Digital</p>
-      <p class="bio">
-        Guru yang membina alat digital praktikal untuk memudahkan kerja
-        sekolah — daripada pengurusan kehadiran hinggalah automasi harian.
-      </p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#hubungi">Hubungi Saya</a>
-        <a class="btn btn-ghost" href="#projek">Lihat Projek</a>
-      </div>
-    </header>
+  <!-- NAV — masthead -->
+  <header class="nav">
+    <div class="wrap">
+      <p class="nav__issue"><span>cikgukhairan.my</span><span>·</span><span>Sejak 2026</span></p>
+    </div>
+    <div class="wrap nav__inner">
+      <a class="nav__brand" href="index.html"><span class="nav__brand-type" data-type="CikguKhairan">CikguKhairan</span><span class="nav__caret" aria-hidden="true"></span></a>
 
-    <!-- PROJEK -->
-    <section id="projek">
-      <p class="section-label">Projek</p>
-      <h2>Apa yang saya bina</h2>
+      <button class="nav__toggle" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
 
-      <a class="project" href="https://ihadir.my" target="_blank" rel="noopener">
-        <div class="project-head">
-          <h3>iHadir.my</h3>
-          <span class="pill">Sistem Kehadiran</span>
+      <nav class="nav__menu" id="menu" aria-label="Navigasi utama">
+        <ul class="nav__links">
+          <li><a class="nav__link" href="index.html" aria-current="page">Utama</a></li>
+          <li><a class="nav__link" href="tentang.html">Tentang</a></li>
+          <li><a class="nav__link" href="projek.html">Projek</a></li>
+          <li><a class="nav__link" href="hubungi.html">Hubungi</a></li>
+        </ul>
+        <div class="nav__cta">
+          <a class="btn btn--primary" href="hubungi.html">Hubungi</a>
         </div>
-        <p>
-          Sistem kehadiran guru berasaskan lokasi GPS untuk sekolah — clock-in/out,
-          E-Gerak, laporan, dan pemantauan sesi. Dibina dengan Laravel &amp; PWA.
-        </p>
-        <span class="arrow">Lawati laman →</span>
-      </a>
+      </nav>
+    </div>
+  </header>
 
-      <!-- Salin blok di atas untuk tambah projek lain -->
+  <main>
+
+    <!-- MARQUEE HERO -->
+    <section class="hero">
+      <div class="hero__spot" aria-hidden="true"></div>
+      <div class="wrap hero__grid">
+        <div class="hero__intro">
+          <p class="eyebrow">Guru Sains Komputer &amp; Pembina</p>
+          <h1 class="hero__display">Saya bina alat digital yang <span class="accent">memudahkan kerja sekolah</span>.</h1>
+          <p class="lede hero__lede">
+            Menterjemah masalah harian di sekolah menjadi penyelesaian digital
+            yang ringkas dan boleh dipakai <em>setiap hari</em>.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="projek.html">Lihat Projek</a>
+            <a class="btn btn--ghost" href="hubungi.html">Hubungi Saya</a>
+          </div>
+
+          <dl class="meta-strip">
+            <div class="meta-strip__item">
+              <dt class="k">Peranan</dt>
+              <dd class="v">Guru &amp; Pembina</dd>
+            </div>
+            <div class="meta-strip__item">
+              <dt class="k">Bidang</dt>
+              <dd class="v">Sains Komputer</dd>
+            </div>
+            <div class="meta-strip__item">
+              <dt class="k">Tumpuan</dt>
+              <dd class="v">Alat untuk sekolah</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="hero__note">
+          <div class="note" role="img" aria-label="Terminal Python memaparkan profil Cikgu Khairan dan log kehadiran sistem iHadir.">
+            <div class="note__head">
+              <span>Terminal</span>
+              <span>ihadir · python3</span>
+            </div>
+            <div class="note__body">
+<pre><span class="tok-punc">$</span> <span class="tok-str">python3 cikgu.py --profil</span>
+<span class="tok-dim">>>></span> print(cikgu.tentang)
+<span id="term-bio" class="term-bio" data-typein="Khairan Hadafi — pendidik yang menterjemah masalah harian di sekolah menjadi penyelesaian digital yang ringkas, kemas, dan boleh dipakai setiap hari oleh guru di kelas mahupun di luar kelas.">Khairan Hadafi — pendidik yang menterjemah masalah harian di sekolah menjadi penyelesaian digital yang ringkas, kemas, dan boleh dipakai setiap hari oleh guru di kelas mahupun di luar kelas.</span>
+
+<span class="tok-punc">$</span> <span class="tok-str">python3 ihadir.py --watch</span>
+<span class="tok-dim">>>></span> memantau kehadiran guru<span class="tok-punc">…</span>
+<span id="term-log" class="term-log" data-lines='[
+"[07:42] clock-in  · Cikgu Khairan · SMK Contoh · gps ✓",
+"[13:20] clock-out · Cikgu Khairan · sesi tamat ✓",
+"[13:21] laporan   · kehadiran hari ini dijana ✓",
+"[07:39] clock-in  · Cikgu Aisyah  · dalam kawasan ✓"
+]'></span><span class="caret">▮</span></pre>
+            </div>
+            <div class="note__foot">
+              <span class="status--ok">200 OK</span>
+              <span>direkod ke pangkalan data</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- HUBUNGI -->
-    <section id="hubungi">
-      <p class="section-label">Hubungi</p>
-      <h2>Mari berhubung</h2>
-      <div class="contact-card">
-        <p>Ada projek atau soalan? Saya sedia membantu.</p>
-        <div class="cta-row" style="justify-content:center">
-          <a class="btn btn-primary" href="https://t.me/khairanhadafi" target="_blank" rel="noopener">Telegram</a>
-          <a class="btn btn-ghost" href="mailto:hello@cikgukhairan.my">E-mel</a>
-        </div>
+  </main>
+
+  <!-- FOOTER — mast-headed -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__inner">
+        <ul class="footer__links">
+          <li><a href="index.html">Utama</a></li>
+          <li><a href="tentang.html">Tentang</a></li>
+          <li><a href="projek.html">Projek</a></li>
+          <li><a href="hubungi.html">Hubungi</a></li>
+        </ul>
+        <span>© <span id="year">2026</span> · cikgukhairan.my</span>
       </div>
-    </section>
+    </div>
+  </footer>
 
-    <footer>
-      © <span id="year"></span> Khairan Hadafi · cikgukhairan.my
-    </footer>
-
-  </div>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script src="js/site.js"></script>
 </body>
 </html>

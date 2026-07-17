@@ -8,3 +8,13 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Skills
+.agents/
+
+# Claude Code
+.claude/
+
+# Skills lock + Hallmark log
+skills-lock.json
+.hallmark/

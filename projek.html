@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projek — Khairan Hadafi</title>
+  <meta name="description" content="Projek digital yang dibina oleh Khairan Hadafi untuk sekolah — termasuk iHadir.my, sistem kehadiran guru berasaskan GPS.">
+
+  <meta property="og:title" content="Projek — Khairan Hadafi">
+  <meta property="og:description" content="Projek digital yang dibina untuk memudahkan kerja sekolah.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cikgukhairan.my/projek.html">
+  <meta property="og:locale" content="ms_MY">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAV — masthead -->
+  <header class="nav">
+    <div class="wrap">
+      <p class="nav__issue"><span>cikgukhairan.my</span><span>·</span><span>Sejak 2026</span></p>
+    </div>
+    <div class="wrap nav__inner">
+      <a class="nav__brand" href="index.html"><span class="nav__brand-type" data-type="CikguKhairan">CikguKhairan</span><span class="nav__caret" aria-hidden="true"></span></a>
+
+      <button class="nav__toggle" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+
+      <nav class="nav__menu" id="menu" aria-label="Navigasi utama">
+        <ul class="nav__links">
+          <li><a class="nav__link" href="index.html">Utama</a></li>
+          <li><a class="nav__link" href="tentang.html">Tentang</a></li>
+          <li><a class="nav__link" href="projek.html" aria-current="page">Projek</a></li>
+          <li><a class="nav__link" href="hubungi.html">Hubungi</a></li>
+        </ul>
+        <div class="nav__cta">
+          <a class="btn btn--primary" href="hubungi.html">Hubungi</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HEADER -->
+    <section class="section--tight" style="padding-top:var(--space-2xl)">
+      <div class="wrap">
+        <div class="head">
+          <span class="eyebrow">Projek</span>
+          <h2>Apa yang saya bina</h2>
+          <p>Alat digital yang lahir daripada keperluan sebenar di sekolah — dibina,
+             diuji, dan dipakai, bukan sekadar demo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <div class="projects">
+
+          <a class="project reveal" href="https://ihadir.my" target="_blank" rel="noopener">
+            <div class="project__head">
+              <span class="project__title">iHadir.my</span>
+              <span class="pill">Sistem Kehadiran</span>
+            </div>
+            <p>
+              Sistem kehadiran guru berasaskan lokasi GPS untuk sekolah — clock-in / clock-out,
+              E-Gerak, laporan sesi, dan pemantauan kehadiran. Berjalan di telefon guru
+              sebagai PWA, tanpa perlu mesin punch card atau pemasangan aplikasi.
+            </p>
+            <div class="project__stack">
+              <span class="tag">Laravel</span>
+              <span class="tag">PWA</span>
+              <span class="tag">GPS / Geolokasi</span>
+              <span class="tag">MySQL</span>
+            </div>
+            <span class="project__arrow">Lawati laman <span class="x">→</span></span>
+          </a>
+
+          <div class="project--soon">
+            Projek seterusnya sedang dibina — nantikan.
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- STATEMENT BAND -->
+    <section class="section band">
+      <div class="wrap">
+        <span class="eyebrow">Kolaborasi</span>
+        <h2>Nak bina sesuatu untuk sekolah anda?</h2>
+        <p class="lede" style="margin-top:var(--space-md)">
+          Kalau ada masalah harian yang boleh diselesaikan dengan alat digital,
+          jom bincang. Saya suka masalah yang praktikal.
+        </p>
+        <div class="hero__actions" style="margin-top:var(--space-xl)">
+          <a class="btn btn--primary" href="hubungi.html">Hubungi Saya</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__inner">
+        <ul class="footer__links">
+          <li><a href="index.html">Utama</a></li>
+          <li><a href="tentang.html">Tentang</a></li>
+          <li><a href="projek.html">Projek</a></li>
+          <li><a href="hubungi.html">Hubungi</a></li>
+        </ul>
+        <span>© <span id="year">2026</span> · cikgukhairan.my</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/site.js"></script>
+</body>
+</html>
