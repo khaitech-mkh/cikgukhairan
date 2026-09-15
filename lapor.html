@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lapor Kerosakkan — cikgukhairan.my</title>
+  <meta name="description" content="Borang pelaporan kerosakkan peralatan sekolah. Lapor dengan maklumat lengkap dan bukti bergambar.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Form-specific styles */
+    .form-wrapper {
+      max-width: 54rem;
+    }
+
+    .form-group {
+      margin-bottom: var(--space-2xl);
+      display: grid;
+      gap: var(--space-sm);
+    }
+
+    .form-group label {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-ink);
+      display: block;
+    }
+
+    .form-group .required {
+      color: var(--color-accent);
+    }
+
+    .form-control {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      padding: 0.85rem 1rem;
+      border: var(--rule) solid var(--color-rule);
+      border-radius: var(--radius-sm);
+      background: var(--color-paper);
+      color: var(--color-ink);
+      transition: border-color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
+      min-height: 44px;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      background: var(--color-paper);
+    }
+
+    input.form-control,
+    select.form-control,
+    textarea.form-control {
+      width: 100%;
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 100px;
+      font-size: var(--text-sm);
+      line-height: 1.6;
+    }
+
+    /* Severity level buttons */
+    .severity-group {
+      display: flex;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+    }
+
+    .severity-btn {
+      flex: 1;
+      min-width: 60px;
+      padding: 0.75rem;
+      border: var(--rule-thick) solid var(--color-rule);
+      border-radius: var(--radius-sm);
+      background: var(--color-paper);
+      color: var(--color-ink-2);
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 600;
+      cursor: pointer;
+      transition: background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .severity-btn:hover {
+      border-color: var(--color-accent-soft);
+      background: var(--color-paper-2);
+    }
+
+    .severity-btn.active {
+      background: var(--color-accent);
+      color: var(--color-accent-ink);
+      border-color: var(--color-accent);
+    }
+
+    /* Image upload */
+    .upload-zone {
+      border: var(--rule-thick) dashed var(--color-rule);
+      border-radius: var(--radius-sm);
+      padding: var(--space-xl);
+      text-align: center;
+      background: var(--color-paper-2);
+      cursor: pointer;
+      transition: background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+    }
+
+    .upload-zone:hover {
+      border-color: var(--color-accent);
+      background: var(--color-note);
+    }
+
+    .upload-zone.active {
+      border-color: var(--color-accent);
+      background: var(--color-accent-soft);
+    }
+
+    .upload-zone input {
+      display: none;
+    }
+
+    .upload-text {
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      color: var(--color-ink-2);
+      margin-bottom: var(--space-sm);
+    }
+
+    .upload-text strong {
+      color: var(--color-accent);
+      font-weight: 500;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+
+    .image-item {
+      position: relative;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: var(--color-paper-2);
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .image-remove {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      color: var(--color-accent-ink);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      transition: transform var(--dur-fast) var(--ease-out);
+    }
+
+    .image-remove:hover {
+      transform: scale(1.1);
+    }
+
+    /* Form actions */
+    .form-actions {
+      display: flex;
+      gap: var(--space-md);
+      margin-top: var(--space-3xl);
+      flex-wrap: wrap;
+    }
+
+    .form-actions .btn {
+      flex: 1;
+      min-width: 140px;
+    }
+
+    /* Success state */
+    .success-screen {
+      display: none;
+      text-align: center;
+      padding-block: var(--space-3xl);
+    }
+
+    .success-screen.active {
+      display: block;
+    }
+
+    .success-icon {
+      font-size: 3.5rem;
+      margin-bottom: var(--space-md);
+      animation: success-bounce 0.6s var(--ease-out);
+    }
+
+    @keyframes success-bounce {
+      0% { transform: scale(0); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .success-screen h2 {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-md);
+    }
+
+    .success-screen p {
+      color: var(--color-ink-2);
+      margin-bottom: var(--space-lg);
+      max-width: 50ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Responsive */
+    @media (max-width: 48rem) {
+      .severity-group {
+        gap: var(--space-xs);
+      }
+
+      .severity-btn {
+        min-width: 48px;
+        font-size: var(--text-base);
+      }
+
+      .form-actions {
+        flex-direction: column;
+      }
+
+      .form-actions .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV — masthead -->
+  <header class="nav">
+    <div class="wrap">
+      <p class="nav__issue"><span>cikgukhairan.my</span><span>·</span><span>Sejak 2026</span></p>
+    </div>
+    <div class="wrap nav__inner">
+      <a class="nav__brand" href="index.html"><span class="nav__brand-type">CikguKhairan</span><span class="nav__caret" aria-hidden="true"></span></a>
+
+      <button class="nav__toggle" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+
+      <nav class="nav__menu" id="menu" aria-label="Navigasi utama">
+        <ul class="nav__links">
+          <li><a class="nav__link" href="index.html">Utama</a></li>
+          <li><a class="nav__link" href="tentang.html">Tentang</a></li>
+          <li><a class="nav__link" href="projek.html">Projek</a></li>
+          <li><a class="nav__link" href="hubungi.html">Hubungi</a></li>
+        </ul>
+        <div class="nav__cta">
+          <a class="btn btn--primary" href="hubungi.html">Hubungi</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- FORM SECTION -->
+    <section class="section section--tight">
+      <div class="wrap form-wrapper">
+        <div class="head" style="margin-bottom: var(--space-3xl);">
+          <p class="eyebrow">Lapor Kerosakkan</p>
+          <h1 style="font-size: var(--text-3xl);">Maklumat Peralatan Rosak</h1>
+          <p style="margin-top: var(--space-md); color: var(--color-ink-2); font-size: var(--text-lg);">Isikan borang dengan maklumat lengkap dan bukti bergambar untuk membantu pembaikan.</p>
+        </div>
+
+        <!-- Form -->
+        <form id="reportForm">
+          <!-- Nama Murid/Kumpulan -->
+          <div class="form-group">
+            <label for="studentName">Nama Murid / Kumpulan <span class="required">*</span></label>
+            <input type="text" id="studentName" name="studentName" class="form-control" placeholder="Masukkan nama murid atau kumpulan" required>
+          </div>
+
+          <!-- Tarikh -->
+          <div class="form-group">
+            <label for="reportDate">Tarikh Kerosakkan <span class="required">*</span></label>
+            <input type="date" id="reportDate" name="reportDate" class="form-control" required>
+          </div>
+
+          <!-- Kategori Kerosakkan -->
+          <div class="form-group">
+            <label for="category">Kategori Peralatan <span class="required">*</span></label>
+            <select id="category" name="category" class="form-control" required>
+              <option value="">Pilih kategori</option>
+              <option value="perpaipan">Perpaipan</option>
+              <option value="perabot">Perabot</option>
+              <option value="elektrik">Elektrik</option>
+            </select>
+          </div>
+
+          <!-- Lokasi -->
+          <div class="form-group">
+            <label for="location">Lokasi Kerosakkan <span class="required">*</span></label>
+            <input type="text" id="location" name="location" class="form-control" placeholder="Contoh: Bilik air utama, Lab Komputer, Kafeteria" required>
+          </div>
+
+          <!-- Jenis Kerosakkan -->
+          <div class="form-group">
+            <label for="damageType">Jenis Kerosakkan <span class="required">*</span></label>
+            <textarea id="damageType" name="damageType" class="form-control" placeholder="Huraikan jenis kerosakkan dengan jelas. Contoh: Tap bocor, Pintu almari patah, Lampu tidak menyala" required></textarea>
+          </div>
+
+          <!-- Tahap Kerosakkan -->
+          <div class="form-group">
+            <label>Tahap Kerosakkan <span class="required">*</span></label>
+            <div class="severity-group" id="severityGroup">
+              <button type="button" class="severity-btn" data-severity="1" title="Ringan">1</button>
+              <button type="button" class="severity-btn" data-severity="2" title="Sederhana">2</button>
+              <button type="button" class="severity-btn" data-severity="3" title="Teruk">3</button>
+              <button type="button" class="severity-btn" data-severity="4" title="Sangat Teruk">4</button>
+              <button type="button" class="severity-btn" data-severity="5" title="Kritikal">5</button>
+            </div>
+            <input type="hidden" id="severity" name="severity" required>
+          </div>
+
+          <!-- Bukti Bergambar -->
+          <div class="form-group">
+            <label>Bukti Bergambar <span class="required">*</span></label>
+            <div class="upload-zone" id="uploadZone">
+              <div class="upload-text">
+                Seret gambar ke sini atau <strong>klik untuk pilih</strong>
+              </div>
+              <p style="font-size: var(--text-xs); color: var(--color-ink-3); margin-top: var(--space-sm);">PNG, JPG, WebP • Maksimum 5MB setiap gambar • Minima 1 gambar</p>
+              <input type="file" id="imageUpload" name="images" accept="image/*" multiple>
+            </div>
+            <div class="image-grid" id="imageGrid"></div>
+            <input type="hidden" id="imageCount" name="imageCount" value="0">
+          </div>
+
+          <!-- Actions -->
+          <div class="form-actions">
+            <button type="submit" class="btn btn--primary">Hantar Laporan</button>
+            <button type="reset" class="btn btn--ghost">Padam Borang</button>
+          </div>
+        </form>
+
+        <!-- Success Screen -->
+        <div class="success-screen" id="successScreen">
+          <div class="success-icon">✓</div>
+          <h2>Laporan Diterima</h2>
+          <p>Terima kasih telah melaporkan kerosakkan. Tim pembaikan akan melihat laporan anda dan mengambil tindakan segera.</p>
+          <button class="btn btn--ghost" onclick="location.reload()">Hantar Laporan Lain</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__inner">
+        <ul class="footer__links">
+          <li><a href="index.html">Utama</a></li>
+          <li><a href="tentang.html">Tentang</a></li>
+          <li><a href="projek.html">Projek</a></li>
+          <li><a href="hubungi.html">Hubungi</a></li>
+        </ul>
+        <span>© <span id="year">2026</span> · cikgukhairan.my</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const navToggle = document.querySelector('.nav__toggle');
+    const navMenu = document.querySelector('.nav__menu');
+    const nav = document.querySelector('.nav');
+
+    navToggle?.addEventListener('click', () => {
+      nav.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', nav.classList.contains('is-open'));
+    });
+
+    // Form handling
+    const form = document.getElementById('reportForm');
+    const successScreen = document.getElementById('successScreen');
+    const images = [];
+
+    // Severity buttons
+    const severityButtons = document.querySelectorAll('.severity-btn');
+    const severityInput = document.getElementById('severity');
+
+    severityButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        severityButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        severityInput.value = btn.dataset.severity;
+      });
+    });
+
+    // Image upload
+    const uploadZone = document.getElementById('uploadZone');
+    const imageUpload = document.getElementById('imageUpload');
+    const imageGrid = document.getElementById('imageGrid');
+    const imageCount = document.getElementById('imageCount');
+
+    uploadZone.addEventListener('click', () => imageUpload.click());
+
+    uploadZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      uploadZone.classList.add('active');
+    });
+
+    uploadZone.addEventListener('dragleave', () => {
+      uploadZone.classList.remove('active');
+    });
+
+    uploadZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      uploadZone.classList.remove('active');
+      handleFiles(e.dataTransfer.files);
+    });
+
+    imageUpload.addEventListener('change', (e) => {
+      handleFiles(e.target.files);
+    });
+
+    function handleFiles(files) {
+      Array.from(files).forEach(file => {
+        if (file.type.startsWith('image/') && file.size <= 5 * 1024 * 1024) {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            const id = Date.now() + Math.random();
+            images.push({ id, src: e.target.result });
+            renderImages();
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+    }
+
+    function renderImages() {
+      imageGrid.innerHTML = '';
+      images.forEach(img => {
+        const div = document.createElement('div');
+        div.className = 'image-item';
+        div.innerHTML = `
+          <img src="${img.src}" alt="Bukti kerosakkan">
+          <button type="button" class="image-remove" onclick="removeImage(${img.id})">×</button>
+        `;
+        imageGrid.appendChild(div);
+      });
+      imageCount.value = images.length;
+    }
+
+    window.removeImage = (id) => {
+      images.splice(images.findIndex(img => img.id === id), 1);
+      renderImages();
+    };
+
+    // Form submission
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Validation
+      if (images.length === 0) {
+        alert('Sila upload sekurang-kurangnya 1 gambar');
+        return;
+      }
+
+      if (!severityInput.value) {
+        alert('Sila pilih tahap kerosakkan');
+        return;
+      }
+
+      // Show success
+      form.style.display = 'none';
+      successScreen.classList.add('active');
+
+      // Reset after 5 seconds for demo
+      setTimeout(() => {
+        // In production, this would submit data
+      }, 5000);
+    });
+
+    // Set today's date as default
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('reportDate').value = today;
+  </script>
+</body>
+</html>
