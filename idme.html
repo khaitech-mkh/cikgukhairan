@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ID Me — buka Telegram</title>
+  <meta name="description" content="Buka bot Telegram @idmeauto_bot.">
+  <meta name="robots" content="noindex, follow">
+
+  <!-- Redirect: meta refresh sebagai sandaran jika JavaScript dimatikan -->
+  <meta http-equiv="refresh" content="0; url=https://t.me/idmeauto_bot">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <main>
+    <section class="section">
+      <div class="wrap" style="text-align:center">
+
+        <div class="head" style="margin-inline:auto">
+          <span class="eyebrow">ID Me</span>
+          <h2>Membuka Telegram…</h2>
+          <p>Anda sedang dialihkan ke <strong>@idmeauto_bot</strong>. Jika tiada apa-apa
+             berlaku dalam beberapa saat, tekan butang di bawah.</p>
+        </div>
+
+        <p>
+          <a class="btn btn--primary" href="https://t.me/idmeauto_bot" rel="noopener">Buka @idmeauto_bot</a>
+        </p>
+
+        <p style="margin-top:var(--space-lg)">
+          <a class="btn btn--ghost" href="index.html">Kembali ke laman utama</a>
+        </p>
+
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // replace() — supaya butang "back" pelayar kembali ke laman asal, bukan ke sini
+    location.replace('https://t.me/idmeauto_bot');
+  </script>
+</body>
+</html>
